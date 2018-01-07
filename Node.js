@@ -3,7 +3,7 @@ import rAF      from './rAF.js'
 
 export default Node
 
-const Node {
+const Node = {
   ...[
     {},
     'onbeforeupdate',
