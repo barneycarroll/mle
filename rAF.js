@@ -1,4 +1,4 @@
 export default () =>
   new Promise(done =>
-    ƒ(done, ...args)
+    requestAnimationFrame(done)
   )
