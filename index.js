@@ -38,7 +38,9 @@ m.mount(document.documentElement, {
           onupdate:       () => 
             update = false,
         }, 
-          m(Node, { key: '1' }),
+          [
+            m(Node, { key: '1' }),
+          ],
         ),
       ),
 
