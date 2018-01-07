@@ -32,8 +32,11 @@ m.mount(document.documentElement, {
         onbeforeupdate:  () => 
           update,
 
-        onupdate:        () => 
+        onupdate:        () => (
           update = false,
+
+          m.redraw()
+        ),
 
         onclick:         () => 
           update = true,
@@ -104,7 +107,7 @@ m.mount(document.documentElement, {
                     }
                   },
                     time,
-                    
+
                     ' '
                   ),
                   
