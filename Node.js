@@ -1,7 +1,9 @@
 import log      from './log.js'
 import rAF      from './rAF.js'
 
-export default {
+export default Node
+
+const Node {
   ...[
     {},
     'onbeforeupdate',
