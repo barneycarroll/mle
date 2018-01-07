@@ -63,10 +63,8 @@ export default {
 
         m('button', {
           innerHTML: '+',
-          onclick  : () => (
-            update = true,
+          onclick  : () =>
             children.push(key + '.' + (children.length + 1))
-          )
         }),
       ),
 

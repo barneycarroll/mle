@@ -25,7 +25,7 @@ m.mount(document.documentElement, {
           columns 
           ? 'column'
           : 'row'
-        }
+        };
       `,
     },
       m('[style=flex: 0 1 50%; overflow-y: auto;]', {
@@ -104,6 +104,7 @@ m.mount(document.documentElement, {
                     }
                   },
                     time,
+                    
                     ' '
                   ),
                   
