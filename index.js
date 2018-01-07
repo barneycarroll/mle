@@ -2,7 +2,7 @@ import Node        from './Node.js'
 import {log, logs} from './log.js'
 import rAF         from './rAF.js'
 
-export {update, init}
+export {update}
 
 var filter  = ''
 var columns = true

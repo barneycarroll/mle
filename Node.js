@@ -41,7 +41,7 @@ export default {
       log(key, 'view (start)'),
 
       output = m(
-        'div[style=border: 1px solid; padding: .5em; margin: .5em]',
+        '[style=border: 1px solid; padding: .5em; margin: .5em]',
 
         'Node ', key,
 
