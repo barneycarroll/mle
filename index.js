@@ -10,18 +10,18 @@ m.mount(document.documentElement, {
   view    : () =>
     m('body', {
       style: `
-        boxSizing: border-box;
-        display:   flex;
-        font:      .8em sans-serif;
-        position:  fixed;
-        width:     100%;
-        height:    100%;
-        margin:    0;
-        padding:   .5em;
-        top:       0;
-        left:      0;
-        overflow:  hidden;
-        flexDirection: ${
+        box-sizing: border-box;
+        display:    flex;
+        font:       .8em sans-serif;
+        position:   fixed;
+        width:      100%;
+        height:     100%;
+        margin:     0;
+        padding:    .5em;
+        top:        0;
+        left:       0;
+        overflow:   hidden;
+        flex-direction: ${
           columns 
           ? 'column'
           : 'row'
