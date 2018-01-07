@@ -1,7 +1,7 @@
 import log      from './log.js'
 import rAF      from './rAF.js'
 
-export default {
+const Node = {
   ...[
     {},
     'onbeforeupdate',
@@ -15,10 +15,10 @@ export default {
     }
   })),
 
-  oninit({ key }) {
+  oninit({ key, state }) {
     log(key, 'oninit')
 
-    this.children = []
+    state.children = []
   },
 
   async oncreate({ key, dom }) {
@@ -48,22 +48,22 @@ export default {
 
         remove && m('button', {
           innerHTML: 'x',
-          onclick  : remove,
+          onclick: remove,
         }),
 
         m('hr'),
 
         children.map((key, i) =>
-          m(this, {
-            key, 
-            remove : () =>
+          m(Node, {
+            key,
+            remove: () =>
               children.splice(i, 1),
           })
         ),
 
         m('button', {
           innerHTML: '+',
-          onclick  : () =>
+          onclick: () =>
             children.push(key + '.' + (children.length + 1))
         }),
       ),
@@ -73,3 +73,5 @@ export default {
       output
     )
 }
+
+export default Node
