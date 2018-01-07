@@ -1,6 +1,6 @@
-import log    from './log.js'
-import rAF    from './rAF.js'
-import update from './index.js'
+import log      from './log.js'
+import rAF      from './rAF.js'
+import {update} from './index.js'
 
 export default {
   ...[
