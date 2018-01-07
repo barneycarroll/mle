@@ -18,7 +18,7 @@ export default {
   oninit({ key, state }) {
     log(key, 'oninit')
 
-    state.children = []
+    state.subnodes = []
   },
 
   async oncreate({ key, dom }) {
@@ -34,7 +34,7 @@ export default {
   view: ({
     key,
     tag,
-    state: { children },
+    state: { subnodes },
     attrs: { remove },
     output,
   }) => (
@@ -54,18 +54,18 @@ export default {
 
         m('hr'),
 
-        children.map((key, i) =>
+        subnodes.map((key, i) =>
           m(tag, {
             key,
             remove: () =>
-              children.splice(i, 1),
+              subnodes.splice(i, 1),
           })
         ),
 
         m('button', {
           innerHTML: '+',
           onclick: () =>
-            children.push(key + '.' + (children.length + 1))
+            subnodes.push(key + '.' + (subnodes.length + 1))
         }),
       ),
 

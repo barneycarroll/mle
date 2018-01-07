@@ -32,11 +32,13 @@ m.mount(document.documentElement, {
         onbeforeupdate:  () => 
           update,
 
-        onupdate:        () => (
-          update = false,
+        async onupdate(){
+          update = false
+
+          await rAF()
 
           m.redraw()
-        ),
+        },
 
         onclick:         () => 
           update = true,
