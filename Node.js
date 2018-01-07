@@ -1,9 +1,7 @@
 import log      from './log.js'
 import rAF      from './rAF.js'
 
-export default Node
-
-const Node = {
+export default {
   ...[
     {},
     'onbeforeupdate',
@@ -56,7 +54,7 @@ const Node = {
         m('hr'),
 
         children.map((key, i) =>
-          m(Node, {
+          m(this, {
             key, 
             remove : () =>
               children.splice(i, 1),
