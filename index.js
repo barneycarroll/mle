@@ -60,9 +60,8 @@ m.mount(document.documentElement, {
 
           m('input[style=flex: 1 1 0]', {
             value: filter,
-            oninput: persist(e => (
-              filter = e.target.value
-            ))
+            oninput: e =>
+              filter = e.target.value,
           }),
         ),
 
@@ -75,16 +74,13 @@ m.mount(document.documentElement, {
             color:      white;
           `,
         },
-          m('table', {
-            onbeforeupdate : () =>
-              !update,
-          },
+          m('table',
             logs
-              .map(([time, ...$]) =>
+              .map(([time, ...entries]) =>
                 m('tr', {
                   style: {
-                    display: filter && ($.find($ => (
-                      new RegExp(filter.replace(/\\/g, '\\')).test($)
+                    display: filter && (entries.find(entry => (
+                      new RegExp(filter.replace(/\\/g, '\\')).test(entry)
                     )) ? 'block' : 'none')
                   },
 
@@ -109,22 +105,16 @@ m.mount(document.documentElement, {
                     time,
                     ' '
                   ),
-                  $.map($ => 
-                    m('td', $, ' ')
+                  
+                  entries.map(entry => 
+                    m('td', entry, ' ')
                   ),
                 ),
             ),
           ),
         ),
 
-        m('div', {
-          style: `
-            display:    flex; 
-            padding:    .5em;
-            background: lightgrey;
-          `,
-        },
-
+        m('[style=display: flex; padding: .5em; background: lightgrey;]',
           m('button', {
             innerHTML: 'clear',
             onclick  : () =>
@@ -142,6 +132,12 @@ m.mount(document.documentElement, {
             onclick  : () =>
               columns = !columns,
           }),
+
+          m('button', {
+            innerHTML: 'noop redraw',
+            onclick  : () =>
+              update = true,
+          })
         ),
       ),
     ),
