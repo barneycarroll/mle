@@ -2,14 +2,12 @@ import Node        from './Node.js'
 import {log, logs} from './log.js'
 import rAF         from './rAF.js'
 
-export {update}
-
-var filter  = ''
-var columns = true
-var update  = true
+var filter  = '';
+var columns = true;
+var update  = true;
 
 m.mount(document.documentElement, {
-  view: () =>
+  view    : () =>
     m('body', {
       style: `
         boxSizing: border-box;
@@ -30,18 +28,19 @@ m.mount(document.documentElement, {
         }
       `,
     },
-      m('[style=flex: 0 1 50%; overflow-y: auto;]',
-        m.fragment({
-          onbeforeupdate: () => 
-            update,
-            
-          onupdate:       () => 
-            update = false,
-        }, 
-          [
-            m(Node, { key: '1' }),
-          ],
-        ),
+      m('[style=flex: 0 1 50%; overflow-y: auto;]', {
+        onbeforeupdate:  () => 
+          update,
+
+        onupdate:        () => 
+          update = false,
+
+        onclick:         () => 
+          update = true,
+      },
+        m(Node, {
+          key: '1'
+        }),
       ),
 
       m('[style=display: flex; flex: 1 1 50%; flex-direction: column]',

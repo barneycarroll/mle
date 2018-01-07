@@ -1,6 +1,5 @@
 import log      from './log.js'
 import rAF      from './rAF.js'
-import {update} from './index.js'
 
 export default {
   ...[
@@ -35,7 +34,7 @@ export default {
   view: ({
     key,
     state: { children },
-    attrs: { remove, ...attrs },
+    attrs: { remove },
     output,
   }) => (
       log(key, 'view (start)'),
@@ -49,10 +48,7 @@ export default {
 
         remove && m('button', {
           innerHTML: 'x',
-          onclick  : () => (
-            update = true,
-            remove
-          ),
+          onclick  : remove,
         }),
 
         m('hr'),
