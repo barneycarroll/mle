@@ -4,7 +4,7 @@
 
 A playground to demonstrate lifecycle sequence in [Mithril](https://mithril.js.org/). The playground consists of a recursive `Node` component structure, each `Node` being able to add and remove further `Node` children which will receive a key indicating their position withing the tree. A log indicates when each `Node`'s lifecycle methods fire. 
 
-# Why
+## Why
 
 This is intended as an intuitive demonstration to help understand how and when the various lifecycle methods in an arbitrary virtual DOM tree. The source code should also prove of interest in understanding how to build recursive UI structures and conditional render logic (among other things) in Mithril apps.
 
