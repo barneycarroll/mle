@@ -12,7 +12,7 @@ export default {
     ...node,
     [method]({ key }) {
       log(key, method)
-    }
+    },
   })),
 
   oninit({ key, state }) {
@@ -38,39 +38,39 @@ export default {
     attrs: { remove },
     output,
   }) => (
-      log(key, 'view (start)'),
-
+      log(key, 'view (start)')
+    ,
       output = m(
-        '[style=border: 1px solid; padding: .5em; margin: .5em]',
-
-        'Node ', key,
-
-        ' ',
-
+        '[style=border: 1px solid; padding: .5em; margin: .5em]'
+      ,
+        'Node ', key
+      ,
+        ' '
+      ,
         remove && m('button', {
           innerHTML: 'x',
           onclick: remove,
-        }),
-
-        m('hr'),
-
+        })
+      ,
+        m('hr')
+      ,
         subnodes.map((key, i) =>
           m(tag, {
             key,
             remove: () =>
               subnodes.splice(i, 1),
           })
-        ),
-
+        )
+      ,
         m('button', {
           innerHTML: '+',
           onclick: () =>
             subnodes.push(key + '.' + (subnodes.length + 1))
-        }),
-      ),
-
-      log(key, 'view (end)'),
-
+        })
+      )
+    ,
+      log(key, 'view (end)')
+    ,
       output
     )
 }
